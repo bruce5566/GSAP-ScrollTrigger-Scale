@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.top {
+    width: 44rem;
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.left {
+    width: 32rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-172%, -37%);
+}
+.main {
+    width: 44rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.right {
+    width: 32rem;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(172%, -37%);
+}
+
+.bootom {
+    width: 44rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 58%);
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body>
+        <div class="overflow-x-hidden">
+
+            <section
+                class="bg-gray-600 text-white h-screen flex items-center justify-center"
+            >
+                其他區塊
+            </section>
+            <!-- 主要 -->
+            <section>
+                <div class="scale-wrap relative h-screen">
+                    <div class="item top">
+                        <img src="assets/img/pexels-pixabay-459225.jpg" />
+                    </div>
+                    <div class="item left">
+                        <img src="assets/img/pexels-arts-1496373.jpg" />
+                    </div>
+                    <div class="main">
+                        <img src="assets/img/pexels-asadphoto-457882.jpg" />
+                    </div>
+                    <div class="item right">
+                        <img src="assets/img/pexels-felixmittermeier-2832046.jpg" />
+                    </div>
+                    <div class="item bootom">
+                        <img src="assets/img/pexels-dreamypixel-552785.jpg" />
+                    </div>
+                </div>
+            <section>
+            <section
+                class="mt-[600px] bg-gray-600 text-white h-screen flex items-center justify-center"
+                >其他區塊
+            </section>
+        
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+        <script>
+            ;(function () {
+                gsap.registerPlugin(ScrollTrigger)
+                var mm = gsap.matchMedia()
+                var tg = $('.scale-wrap') // 用來觸發動畫的元素
+
+                var item = $('.item') // 其他圖片
+                var main = $('.main') // 主要圖片
+
+                mm.add('(min-width: 1024px)', () => {
+                    // 定義 gsap.timeline 並設置 ScrollTrigger
+                    var t1 = gsap.timeline({
+                        defaults: {
+                            ease: 'power1.inOut', // 預設動畫效果
+                        },
+                        scrollTrigger: {
+                            trigger: tg, // 觸發動畫的元素
+                            start: 'top', // 當觸發元素進入視窗中間時開始動畫
+                            end: 'bottom', // 當觸發元素完全離開視窗頂部時結束動畫
+                            scrub: 1, // 平滑滾動動畫
+                            pin: true, // 固定觸發元素位置
+                             markers: true, // 顯示調試標記
+                        },
+                    })
+
+                    // 定義動畫效果
+                    t1.to(main, { scale: 2,duration: 2})
+                    .to(tg, { scale: 2},0)
+                    .to(item, { scale: 0.5, alpha: 0},0)
+                })
+            })()
+        </script>
+    </body>
+</html>
